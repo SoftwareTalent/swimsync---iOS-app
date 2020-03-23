@@ -1,0 +1,52 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "CoreData+MagicalRecord.h"
+#import "Constant.h"
+#endif
+#import "NetworkingClient.h"
+#import "MYSDataManager.h"
+#import "MYSProfile.h"
+#import "UIAlertView+MKBlockAdditions.h"
+#import "UIActionSheet+MKBlockAdditions.h"
+#import "MethodHelper.h"
+#import "MYSAppData.h"
+
+// Macro wrapper for NSLog only if debug mode has been enabled
+#ifdef DEBUG
+#define DebugLog(fmt,...) NSLog(@"%@",[NSString stringWithFormat:(fmt), ##__VA_ARGS__]);
+#else
+// If debug mode hasn't been enabled, don't do anything when the macro is called
+#define DebugLog(...)
+#endif
+
+#define APPNAME @"SwimmerApp"
+
+//chart option
+#define CHART_STROKE @"ChartStroke"
+#define CHART_DISTANCE @"ChartDistance"
+#define CHART_COURSE @"ChartCourse"
+#define CHART_NUMER_OF_TIMES @"ChartNumberOfTimes"
+#define CHART_ANOTHER_SWIMMER @"ChartAnotherSwimmer"
+#define CHART_ANOTHER_SWIMMER_ID @"ChartAnotherSwimmerID"
+#define CHART_SHOW_PB @"ChartShowPB"
+#define CHART_SHOW_GOAL @"ChartShowGoal"
+#define CHART_SHOW_PB_OTHER @"ChartShowPBOther"
+#define CHART_SHOW_CUSTOM @"ChartShowCustom"
+#define CHART_CUSTOM_TITLE @"ChartCustomTitle"
+#define CHART_CUSTOM_TIME @"ChartCustomTime"
+
+#define EG_ADMOB_FULLAD @"ca-app-pub-6330792675901178/6548407246"
+#define EG_ADMOB_BANNERAD @"ca-app-pub-6330792675901178/8025140443"

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MYSDistance" representedClassName="MYSDistance" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="enteredDate" attributeType="Date" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="MYSEvent" representedClassName="MYSEvent" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="stroke" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="qualifytime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSQualifyTime" inverseName="events" inverseEntity="MYSQualifyTime" syncable="YES"/>
+    </entity>
+    <entity name="MYSGoalTime" representedClassName="MYSGoalTime" syncable="YES">
+        <attribute name="courseType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="stroke" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSProfile" inverseName="goaltime" inverseEntity="MYSProfile" syncable="YES"/>
+    </entity>
+    <entity name="MYSLap" representedClassName="MYSLap" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lapNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="splitTime" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="stopwatch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSStopWatch" inverseName="laps" inverseEntity="MYSStopWatch" syncable="YES"/>
+        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSTime" inverseName="laps" inverseEntity="MYSTime" syncable="YES"/>
+    </entity>
+    <entity name="MYSMeet" representedClassName="MYSMeet" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="enteredDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="qualifytimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSQualifyTime" inverseName="meet" inverseEntity="MYSQualifyTime" syncable="YES"/>
+        <relationship name="times" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSTime" inverseName="meet" inverseEntity="MYSTime" syncable="YES"/>
+    </entity>
+    <entity name="MYSProfile" representedClassName="MYSProfile" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameSwimClub" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="goaltime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSGoalTime" inverseName="profile" inverseEntity="MYSGoalTime" syncable="YES"/>
+        <relationship name="time" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSTime" inverseName="profile" inverseEntity="MYSTime" syncable="YES"/>
+    </entity>
+    <entity name="MYSQualifyTime" representedClassName="MYSQualifyTime" syncable="YES">
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSEvent" inverseName="qualifytime" inverseEntity="MYSEvent" syncable="YES"/>
+        <relationship name="meet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSMeet" inverseName="qualifytimes" inverseEntity="MYSMeet" syncable="YES"/>
+    </entity>
+    <entity name="MYSStopWatch" representedClassName="MYSStopWatch" syncable="YES">
+        <attribute name="lapStartDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lapTime" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="running" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="laps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSLap" inverseName="stopwatch" inverseEntity="MYSLap" syncable="YES"/>
+    </entity>
+    <entity name="MYSTime" representedClassName="MYSTime" syncable="YES">
+        <attribute name="course" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="reactionTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="stage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="stroke" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="laps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MYSLap" inverseName="time" inverseEntity="MYSLap" syncable="YES"/>
+        <relationship name="meet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSMeet" inverseName="times" inverseEntity="MYSMeet" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MYSProfile" inverseName="time" inverseEntity="MYSProfile" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MYSDistance" positionX="9" positionY="81" width="128" height="75"/>
+        <element name="MYSEvent" positionX="-398" positionY="-90" width="128" height="120"/>
+        <element name="MYSGoalTime" positionX="286" positionY="32" width="128" height="118"/>
+        <element name="MYSLap" positionX="-270" positionY="117" width="128" height="105"/>
+        <element name="MYSMeet" positionX="187" positionY="-144" width="128" height="193"/>
+        <element name="MYSProfile" positionX="-108" positionY="293" width="128" height="193"/>
+        <element name="MYSQualifyTime" positionX="-29" positionY="-315" width="128" height="120"/>
+        <element name="MYSStopWatch" positionX="250" positionY="297" width="128" height="135"/>
+        <element name="MYSTime" positionX="-567" positionY="279" width="128" height="208"/>
+    </elements>
+</model>

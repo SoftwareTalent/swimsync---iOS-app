@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  MySwimTimes
+
+  Created by SmarterApps on 3/3/14.
+  Copyright (c) 2014 SmarterApps. All rights reserved.
+*/
+
+NO = "No";
+YES = "Yes";
+OK = "OK";
+
+// Tab Bar
+TIMES = "Times";
+MEETS = "Meets";
+STOPWATCH = "Stopwatch";
+PROFILES = "Swimmers";
+GRAPH = "Graph";
+
+// Time
+NEW_TIME = "New Time";
+SAVE_NEW_TIME = "Save as a new time";
+
+// Lap
+Lap = "Lap";
+TOTALTIME = "Time";
+Split = "Split";
+Total = "Total";
+"Do you want to delete lap %d?" = "Do you want to delete lap %d?";
+
+// Meet
+QUALIFYING_TIME = "Qualifying time";
+EVENT = "Event";
+
+INPUT_PROFILE_CONTENT = "Please add new profile to start";
+
+INPUT_NAME_SWIM_NAME = "Please enter swimmer name";
+INPUT_MEET = "Please enter meet title";
+ADD_NEW_TIME = "Please add time data for this profile to view stats screen";
+ADD_NEW_PROFILE_TO_START = "Please add new profile to start";
+
+DATA_NOT_FOUND = "Data not found";
+PLEASE_CHECK_FILTER = "Please check your filter options";
+CHECK_FILTER = "Data not found\nPlease check your filter options";
+
+TAKE_PHOTO = "Take Photo";
+CHOOSE_PHOTO_FROM_LIBRARY = "Choose Photo from Library";
